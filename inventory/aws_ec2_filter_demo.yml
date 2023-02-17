@@ -1,0 +1,20 @@
+plugin: aws_ec2
+regions:
+   - ap-south-1
+ 
+filters:
+# All instances with their `Name` tag set to `ansible_1 & ansible_2`
+  tag:Name: 
+    - ansible_1
+    - ansible_2
+
+## All instances with their `env` tag set to `dev`
+  tag:env: dev
+# All instances with their `env` tag set to `dev , qa & prod`
+  tag:env:
+    - dev
+    - qa
+    - prod
+
+
+######  It will only consider the last 'tag' filter ###

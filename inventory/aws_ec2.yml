@@ -1,0 +1,15 @@
+plugin: aws_ec2
+regions:
+   - ap-south-1
+
+keyed_groups:
+# Add hosts to tag_Name_Value groups for each Name/Value tag pair
+  - prefix: tag
+    key: tags
+
+#Create a group for each value of the 'env' tag
+  - key: tags.env
+
+#Create a group for each value of the 'Name' tag
+  - key: tags.Name
+    seperator: ' '

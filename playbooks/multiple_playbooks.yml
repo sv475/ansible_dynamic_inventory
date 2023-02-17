@@ -1,0 +1,2 @@
+- import_playbook: ping_shell_command.yml
+- import_playbook: apache_install.yml

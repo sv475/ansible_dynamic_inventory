@@ -1,0 +1,10 @@
+---
+- hosts: dev1
+  become: yes
+
+  tasks:
+    - name: " Install and run Apache server on the  webhost"
+      yum: name=httpd  state=present
+
+    - service: name=httpd state=started enabled=true
+    - raw: "echo WELCOME TO TUT | tee /var/www/html/index.html"

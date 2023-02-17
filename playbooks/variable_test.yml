@@ -1,0 +1,12 @@
+---
+- hosts: dev1
+  become: yes
+  vars_files:
+    - definedVariables.yml
+  vars:
+    vname: "Inside the playbook"
+   
+
+  tasks:
+    - name: "To print the value of variables"
+      debug: msg="Varibale  is present in  {{ vname }} {{ vname1 }}"

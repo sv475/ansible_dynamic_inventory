@@ -1,0 +1,12 @@
+[dev]
+dev1 ansible_host=172.31.39.63
+
+[qa]
+dev2 ansible_host=172.31.42.185
+
+[sab:children]
+dev
+qa
+
+[newset]
+dev[1:2]

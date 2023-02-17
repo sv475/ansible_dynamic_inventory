@@ -1,0 +1,11 @@
+---
+- hosts: dev1
+
+  tasks:
+    - name: "Test debug commands"
+      debug: msg="{{ ansible_hostname }}" 
+
+    - name: " Test debug with VAR attribute "
+      debug: var=ansible_hostname
+    - debug: var=groups
+    - debug: var=group_names 
