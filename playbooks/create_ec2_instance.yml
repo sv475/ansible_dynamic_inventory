@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+
+  tasks:
+    - ec2:
+         key_name: jenkins-master
+         instance_type: t2.micro
+         image: ami-0cca134ec43cf708f
+         region: ap-south-1
+         count: 1
+         vpc_subnet_id: subnet-0c6fbe492833ce464
+         assign_public_ip: yes
+         group: ["launch-wizard-1"]
+         instance_tags:
+            env: dev
+         wait: yes
+      register: ec2_output
+    - debug: var=ec2_output

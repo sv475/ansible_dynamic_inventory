@@ -4,12 +4,12 @@ regions:
 
 keyed_groups:
 # Add hosts to tag_Name_Value groups for each Name/Value tag pair
-  - prefix: tag
-    key: tags
+#  - prefix: tag
+ #   key: tags
 
 #Create a group for each value of the 'env' tag
-  - key: tags.env
+#  - key: tags.env
 
 #Create a group for each value of the 'Name' tag
-  - key: tags.Name
-    seperator: ' '
+   - key: tags.Name
+     seperator: ' '
