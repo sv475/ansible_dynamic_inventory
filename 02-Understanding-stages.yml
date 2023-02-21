@@ -7,28 +7,33 @@ pool:
 stages:
   - stage: Build
     jobs:
-      - job: CheckoutBuild
+      - job: Checkout
         steps:
         - script: echo Running inside the Build stage
-          displayName: Job1
+          displayName: Code_Checkout
 
   - stage: Dev
+    dependsOn: Build
     jobs:
       - job: DeployDev
         steps:
         - script: echo Running in Dev Environment
-          displayName: Job2
+          displayName: Dev_Deployment
   
   - stage: QA
+    dependsOn: Build
     jobs:
       - job: DeployQA
         steps:
         - script: echo Running in QA Environment
-          displayName: Job 3
+          displayName: QA_Deployment
     
   - stage: PROD
+    dependsOn:
+    - QA
+    - Dev
     jobs:
       - job: DeployProd
         steps:
         - script: echo Running in PROD environmnet
-          displayName: Job 4
+          displayName: PROD_Deployment
