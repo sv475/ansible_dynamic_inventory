@@ -9,14 +9,14 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-Jobs:
-- Job1:
-  - steps:
-    - script: echo From Job1!
-      displayName: 'execute the JOB1'
-- Job2:
-  - steps:
-    - script: echo From Job2!
-      displayName: 'execute the JOB2'
+- Jobs:
+  - Job1:
+    - steps:
+      - script: echo From Job1!
+        displayName: 'execute the JOB1'
+  - Job2:
+    - steps:
+      - script: echo From Job2!
+        displayName: 'execute the JOB2'
 
 
