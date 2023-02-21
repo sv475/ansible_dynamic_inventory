@@ -7,7 +7,7 @@ pool:
 stages:
   - stage: Build
     jobs:
-      - job: Checkout Build
+      - job: CheckoutBuild
         steps:
         - script: echo Running inside the Build stage
           displayName: Job1
