@@ -1,0 +1,34 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: Build
+    jobs:
+      - job: Checkout Build
+        steps:
+        - script: echo Running inside the Build stage
+          displayName: Job1
+
+  - stage: Dev
+    jobs:
+      - job: DeployDev
+        steps:
+        - script: echo Running in Dev Environment
+          displayName: Job2
+  
+  - stage: QA
+    jobs:
+      - job: DeployQA
+        steps:
+        - script: echo Running in QA Environment
+          displayName: Job 3
+    
+  - stage: PROD
+    jobs:
+      - job: DeployProd
+        steps:
+        - script: echo Running in PROD environmnet
+          displayName: Job 4
