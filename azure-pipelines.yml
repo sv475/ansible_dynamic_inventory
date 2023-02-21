@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-- Job:
+Job:
   - Job1:
     - steps:
       - script: echo From Job1!
