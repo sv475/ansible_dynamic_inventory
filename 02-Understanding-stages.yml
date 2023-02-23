@@ -22,6 +22,11 @@ stages:
             TargetFolder: '$(Build.ArtifactStagingDirectory)'
         - bash: echo "File Copied "
         - bash: ls -lrt $(Build.ArtifactStagingDirectory)
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+            ArtifactName: 'drop'
+            publishLocation: 'Container'
   # - stage: Dev
   #   dependsOn: Build
   #   jobs:
