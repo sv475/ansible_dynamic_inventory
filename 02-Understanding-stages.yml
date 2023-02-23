@@ -1,39 +1,39 @@
-trigger:
-- master
+# trigger:
+# - master
 
 pool:
   vmImage: ubuntu-latest
 
 stages:
-  - stage: Build
+  - stage: PlayingVariables
     jobs:
-      - job: Checkout
+      - job: PrintVariable
         steps:
-        - script: echo Running inside the Build stage
-          displayName: Code_Checkout
+        - bash: echo $(Build.id)
+        - bash: java -version
 
-  - stage: Dev
-    dependsOn: Build
-    jobs:
-      - job: DeployDev
-        steps:
-        - script: echo Running in Dev Environment
-          displayName: Dev_Deployment
+  # - stage: Dev
+  #   dependsOn: Build
+  #   jobs:
+  #     - job: DeployDev
+  #       steps:
+  #       - script: echo Running in Dev Environment
+  #         displayName: Dev_Deployment
   
-  - stage: QA
-    dependsOn: Build
-    jobs:
-      - job: DeployQA
-        steps:
-        - script: echo Running in QA Environment
-          displayName: QA_Deployment
+  # - stage: QA
+  #   dependsOn: Build
+  #   jobs:
+  #     - job: DeployQA
+  #       steps:
+  #       - script: echo Running in QA Environment
+  #         displayName: QA_Deployment
     
-  - stage: PROD
-    dependsOn:
-    - QA
-    - Dev
-    jobs:
-      - job: DeployProd
-        steps:
-        - script: echo Running in PROD environmnet
-          displayName: PROD_Deployment
+  # - stage: PROD
+  #   dependsOn:
+  #   - QA
+  #   - Dev
+  #   jobs:
+  #     - job: DeployProd
+  #       steps:
+  #       - script: echo Running in PROD environmnet
+  #         displayName: PROD_Deployment
