@@ -9,9 +9,10 @@ stages:
     jobs:
       - job: PrintVariable
         steps:
-        - bash: echo $(Build.Repository.Name)
+        - bash: echo The build is checkout from the $(Build.Repository.Name) REPORSITORY
         - bash: echo $(Build.SourceBranch)
-        - bash: echo $(Build.ArtifactStagingDirectory)
+        - bash: echo The content are checkout at $(Build.SourcesDirectory)
+        - bash: echo The location of the artifactory dir is $(Build.ArtifactStagingDirectory)
         - bash: java -version
 
   # - stage: Dev
