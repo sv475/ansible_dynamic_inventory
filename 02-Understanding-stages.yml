@@ -15,7 +15,13 @@ stages:
         - bash: echo The location of the artifactory dir is $(Build.ArtifactStagingDirectory)
         - bash: ls -lrt $(Build.ArtifactStagingDirectory)
         - bash: java -version
-
+        - task: CopyFiles@2
+          inputs:
+            SourceFolder: '$(Build.SourcesDirectory)'
+            Contents: '**'
+            TargetFolder: '$(Build.ArtifactStagingDirectory)'
+        - bash: echo "File Copied "
+        - bash: ls -lrt $(Build.ArtifactStagingDirectory)
   # - stage: Dev
   #   dependsOn: Build
   #   jobs:
