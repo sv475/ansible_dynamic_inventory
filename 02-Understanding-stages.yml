@@ -9,7 +9,9 @@ stages:
     jobs:
       - job: PrintVariable
         steps:
-        - bash: echo $(Build.id)
+        - bash: echo $(Build.Repository.Name)
+        - bash: echo $(Build.SourceBranch)
+        - bash: echo $(Build.ArtifactStagingDirectory)
         - bash: java -version
 
   # - stage: Dev
