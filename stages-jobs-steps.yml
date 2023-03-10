@@ -10,27 +10,33 @@ stages:
         steps:
           - script: echo "Job A of Stage A"
       - job: JobB
+        dependsOn: JobA
         steps:
          - script: echo "Job B of Stage A" 
 
   - stage: B
     jobs:
       - job: Job1
+        displayName: Job1StageB
         steps:
         - script: echo "Job 1 of Stage B"
 
       - job: Job2
+        displayName: Job2StageB
+        dependsOn: Job1
         steps:
         - script: echo "Job 2 of Stage B"
 
   - stage: C
     jobs:
       - job: A1
+        displayName: JobA1StageC
         steps:
           - script: echo "A1 from Stage C"
         
   - stage: D
     jobs:
       - job: AD1
+        displayName: JobAD1StageD
         steps:
         - script: echo "Job AD1 from Stage D"
