@@ -1,14 +1,14 @@
 trigger: none
 
 pool:
-  vmImage: ubuntu-latest
-
+  #vmImage: ubuntu-latest
+  name: linux-machine 
 stages:
   - stage: A
     jobs:
       - job: JobA
         steps:
-          - script: echo "Job A of Stage A"
+          - script: echo "Job A of Stage A " , $hostname
       - job: JobB
         dependsOn: JobA
         steps:
