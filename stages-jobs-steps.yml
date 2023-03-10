@@ -1,0 +1,36 @@
+trigger: none
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: A
+    jobs:
+      - job: JobA
+        steps:
+          - script: echo "Job A of Stage A"
+      - job: JobB
+        steps:
+         - script: echo "Job B of Stage A" 
+
+  - stage: B
+    jobs:
+      - job: Job1
+        steps:
+        - script: echo "Job 1 of Stage B"
+
+      - job: Job2
+        steps:
+        - script: echo "Job 2 of Stage B"
+
+  - stage: C
+    jobs:
+      - job: A1
+        steps:
+          - script: echo "A1 from Stage C"
+        
+  - stage: D
+    jobs:
+      - job: AD1
+        steps:
+        - script: echo "Job AD1 from Stage D"
