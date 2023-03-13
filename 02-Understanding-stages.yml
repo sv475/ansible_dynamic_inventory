@@ -9,6 +9,7 @@ stages:
     jobs:
       - job: PrintVariable
         steps:
+        - checkout: none
         - bash: echo The build is checkout from the $(Build.Repository.Name) REPORSITORY
         - bash: echo $(Build.SourceBranch)
         - bash: echo The content are checkout at $(Build.SourcesDirectory)
